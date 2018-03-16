@@ -7,7 +7,7 @@ import { Input } from '@angular/core';
   styleUrls: ['./tweet-list.component.css']
 })
 export class TweetListComponent implements OnInit {
-  @Input() tweets: any[] = [];
+  @Input() tweets: Array<any>;
 
   constructor() { }
 
