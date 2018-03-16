@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
 
+import { TweetsService } from './tweets.service';
+
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
@@ -26,7 +28,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ TweetsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
