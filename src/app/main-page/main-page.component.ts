@@ -13,7 +13,8 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit() {
     this.service.getTweets("Angular").subscribe( (tweets) => {
-  });
-}
+      this.tweets = tweets.statuses;
+    });
+  }
 
 }
