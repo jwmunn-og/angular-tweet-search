@@ -12,7 +12,15 @@ export class MainPageComponent implements OnInit {
   constructor(private service: TweetsService) { }
 
   ngOnInit() {
-    this.service.getTweets("Angular").subscribe( (tweets) => {
+    const query = localStorage.getItem("lastQuery") || "Angular";
+    this.service.getTweets(query).subscribe( (tweets) => {
+      this.tweets = tweets.statuses;
+    });
+  }
+
+  search(keyword: string) {
+    localStorage.setItem("lastQuery", keyword);
+    this.service.getTweets(keyword).subscribe( (tweets) => {
       this.tweets = tweets.statuses;
     });
   }

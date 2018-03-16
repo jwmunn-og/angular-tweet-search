@@ -1,6 +1,9 @@
 <a routerLink="/about">About</a>
-<p>
-  main-page works!
-</p>
+<div>
+  <form (ngSubmit)="search(keyword.value)">
+    <input placeholder="Keyword" #keyword />
+    <button>Search</button>
+  </form>
+</div>
 
 <app-tweet-list [tweets]="tweets"></app-tweet-list>
