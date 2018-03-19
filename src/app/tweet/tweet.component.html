@@ -1,7 +1,7 @@
-<img src="{{tweet['user']['profile_image_url']}}" alt="profile" />
+<img *ngIf="tweet && tweet['user']" src="{{tweet['user']['profile_image_url']}}" alt="profile" />
 <div>
   {{tweet['text']}}
-  <a class="user-details" href="#">
+  <a *ngIf="tweet && tweet['user']" class="user-details" href="#">
     <span class="name">{{tweet['user']['name']}}</span>
     <span class="screen-name">@{{tweet['user']['screen_name']}}</span>
     <span class="date">- {{tweet['created_at'] | date:'medium'}}</span>
