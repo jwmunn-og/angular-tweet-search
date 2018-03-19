@@ -1,9 +1,20 @@
 <img *ngIf="tweet && tweet['user']" src="{{tweet['user']['profile_image_url']}}" alt="profile" />
 <div>
   {{tweet['text']}}
-  <a *ngIf="tweet && tweet['user']" class="user-details" href="#">
+  <ng-container *ngIf="tweet && tweet['user']">
+      <a class="user-details" [routerLink]="['/user', tweet['user']['screen_name']]">
     <span class="name">{{tweet['user']['name']}}</span>
     <span class="screen-name">@{{tweet['user']['screen_name']}}</span>
     <span class="date">- {{tweet['created_at'] | date:'medium'}}</span>
   </a>
+  </ng-container>
+  <!-- <ng-container *ngFor="let part of parse()">
+    <a *ngIf="part.type ==='hashtag'" [routerLink]="['/hashtag', part.value.slice(1, part.value.length)]">
+      {{part.value}}
+    </a>
+    <a *ngIf="part.type ==='mention'" [routerLink]="['/user', part.value.slice(1, part.value.length)]">
+      {{part.value}}
+    </a>
+    <a *ngIf="part.type ==='url'" href="{{part.value}}">{{part.value}}</a>
+  </ng-container> -->
 </div>
